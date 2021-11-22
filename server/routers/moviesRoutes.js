@@ -1,73 +1,21 @@
-const  axios  = require('axios');
+// Movies routes 
 const express = require('express')
 const movieRouter = new express.Router()
 const moviesController = require('../controllers/moviesController');
 
+//Obtain the Latest Movies
+movieRouter.get('/movie/latest', moviesController.getLatestMovies)
 
+//Obtain the Top ratest Movies
+movieRouter.get('/movie/top_rated', moviesController.getTopRatedMovies)
 
+//Obtain the Most Popular Movies
+movieRouter.get('/movie/popular', moviesController.getTopRatedMovies)
 
-movieRouter.get('/movie/latest', moviesController.getLatestMovies
+//Obtain By name the  Movie
+movieRouter.get('/search/movie', moviesController.getByNameMovies)
 
-        // const key = "?api_key="+req.headers.api_key
-        // return axios.get(url+req.body.complement+key)
-        // .then(response => {
-        //     console.log("3", response.data.title)
-        //     return res.send(response.data)    
-        
-        // }
-        //     )
-        // .catch(error => error)
-    
-)
-
-movieRouter.get('/movie/top_rated', (req, res) => {
-        
-    console.log("3",req.path)
-    console.log("4", req.headers)
-        // const key = "?api_key="+req.headers.api_key
-        // return axios.get(url+req.body.complement+key)
-        // .then(response => {
-        //     console.log("3", response.data.title)
-        //     return res.send(response.data)    
-        
-        // }
-        //     )
-        // .catch(error => error)
-    
-})
-
-movieRouter.get('/movie/popular', (req, res) => {
-        
-    console.log("5",req.path)
-    console.log("6", req.headers)
-        // const key = "?api_key="+req.headers.api_key
-        // return axios.get(url+req.body.complement+key)
-        // .then(response => {
-        //     console.log("3", response.data.title)
-        //     return res.send(response.data)    
-        
-        // }
-        //     )
-        // .catch(error => error)
-    
-})
-
-movieRouter.get('/movie/{movie_id}', (req, res) => {
-        
-    console.log("9",req.path)
-    console.log("10", req.headers)
-        // const key = "?api_key="+req.headers.api_key
-        // return axios.get(url+req.body.complement+key)
-        // .then(response => {
-        //     console.log("3", response.data.title)
-        //     return res.send(response.data)    
-        
-        // }
-        //     )
-        // .catch(error => error)
-    
-})
-
-
+//Obtain The Movies Datail 
+movieRouter.get('/movie/:id', moviesController.getDetailMovies)
 
 module.exports = movieRouter

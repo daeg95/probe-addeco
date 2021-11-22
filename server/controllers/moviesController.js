@@ -1,29 +1,78 @@
-const _constants = require("../constants/responses");
-const url = 'https://api.themoviedb.org/3';
+const _constants = require("../constants/constants");
 const  axios  = require('axios');
 
 
  module.exports.getLatestMovies = (req, res) => {
     try {
-      
-        console.log(".........................................",req.path)
- 
-        const key = "?api_key="+req.headers.api_key
-
-
-        return axios.get(url+req.path+key)
+        return axios.get(_constants.url+req.path+_constants.api_key)
         .then(response => {
-            console.log("3", response)
-            return res.send(response.data)    
-        
-        }
+             return res.send(response.data)       
+                }
             )
             .catch(error => 
                 console.log(error)
-                )
+            )
+    } catch (error) {
+      console.log("Error in getLatestMovies user controller: ", error);
+    }
+  };
 
-     
-  
+  module.exports.getTopRatedMovies = (req, res) => {
+    try {
+        return axios.get(_constants.url+req.path+_constants.api_key)
+        .then(response => {
+             return res.send(response.data)       
+                }
+            )
+            .catch(error => 
+                console.log(error)
+            )
+    } catch (error) {
+      console.log("Error in getLatestMovies user controller: ", error);
+    }
+  };
+
+  module.exports.getPopularMovies = (req, res) => {
+    try {
+        return axios.get(_constants.url+req.path+_constants.api_key)
+        .then(response => {
+             return res.send(response.data)       
+                }
+            )
+            .catch(error => 
+                console.log(error)
+            )
+    } catch (error) {
+      console.log("Error in getLatestMovies user controller: ", error);
+    }
+  };
+
+  module.exports.getByNameMovies = (req, res) => {
+    try {
+        return axios.get(_constants.url+req.path+_constants.api_key+"&query="+req.query.query.trim().replace(/\s+/g, ' ').split(" ").join(" + "))
+        .then(response => {
+             return res.send(response.data)       
+                }
+            )
+            .catch(error => 
+                console.log(error)
+            )
+    } catch (error) {
+      console.log("Error in getLatestMovies user controller: ", error);
+    }
+  };
+
+  module.exports.getDetailMovies = (req, res) => {
+    try {
+
+        return axios.get(_constants.url+req.path+_constants.api_key)
+        .then(response => {
+             return res.send(response.data)       
+                }
+            )
+            .catch(error => 
+                console.log(error)
+            )
     } catch (error) {
       console.log("Error in getLatestMovies user controller: ", error);
     }
