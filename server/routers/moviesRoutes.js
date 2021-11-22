@@ -3,16 +3,10 @@ const express = require('express')
 const movieRouter = new express.Router()
 const moviesController = require('../controllers/moviesController');
 
-const url = 'https://api.themoviedb.org/3/';
 
 
-movieRouter.get('/movie/latest', (req, res) => {
-        
-    console.log("1",req.path)
-    console.log("2", req.headers)
 
-
-    moviesController.getLatestMovies(req)
+movieRouter.get('/movie/latest', moviesController.getLatestMovies
 
         // const key = "?api_key="+req.headers.api_key
         // return axios.get(url+req.body.complement+key)
@@ -24,7 +18,7 @@ movieRouter.get('/movie/latest', (req, res) => {
         //     )
         // .catch(error => error)
     
-})
+)
 
 movieRouter.get('/movie/top_rated', (req, res) => {
         
