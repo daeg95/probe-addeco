@@ -1,0 +1,23 @@
+img {
+  height:18rem;
+  border-radius:12px;
+}
+
+.card {
+  border-radius:12px;
+  position: relative;
+  margin: 15px;
+}
+
+::ng-deep .progress
+{
+  width:4.5rem;
+  height: 4rem !important;
+  background-color:transparent !important;
+}
+
+#progress-circle {
+  position: absolute;
+  top: 15.5rem;
+  right:1rem;
+}

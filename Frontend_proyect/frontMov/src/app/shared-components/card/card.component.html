@@ -1,0 +1,27 @@
+<div class="card" style="width: 13rem;" (click)="clickCard()">
+<img [src]="(item.poster_path ? url_images +  item.poster_path:'https://i.pinimg.com/originals/6e/01/b4/6e01b467cdf14ffaddeea5b2aa62c407.jpg')"  alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{item.title}}</h5>
+    <p>{{item.date | date:'dd mm YYYY'}}</p>
+  </div>
+
+<circle-progress
+id="progress-circle"
+class="progress"
+[titleFontSize]="'60'"
+[showSubtitle]="false"
+[showUnits]="true"
+[units]="'%'"
+[unitsFontSize]="'40'"
+[unitsColor]="'#FFFFFF'"
+[percent]="10*item.vote_average"
+[radius]="100"
+[outerStrokeWidth]="16"
+[innerStrokeWidth]="8"
+[outerStrokeColor]="'#78C000'"
+[innerStrokeColor]="'#C7E596'"
+[animation]="true"
+[animationDuration]="300"
+></circle-progress>
+</div>
+
